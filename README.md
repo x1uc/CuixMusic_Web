@@ -17,3 +17,11 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### finnish display
+
+![img](public\images\view1.png)
+
+
+![Alt text](public\images\image.png)
