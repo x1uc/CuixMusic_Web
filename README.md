@@ -21,7 +21,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### finnish display
 
-![img](public\images\view1.png)
+![img](https://i.imgs.ovh/2023/09/28/VVQm3.png)
 
 
-![Alt text](public\images\image.png)
+![Alt text](https://i.imgs.ovh/2023/09/28/VVuJv.png)
