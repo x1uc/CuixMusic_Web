@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Search from '../views/Search.vue'
 import musiclist from '../views/Musiclist.vue'
+import admin from '../views/admin.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -19,7 +20,11 @@ const routes = [
     path: '/musiclist',
     component: musiclist
   },
-
+  {
+    path: '/admin',
+    name: 'admin',
+    component: admin
+  }
 ]
 
 const router = new VueRouter({

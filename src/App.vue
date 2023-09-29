@@ -45,7 +45,7 @@ import Floor from './views/Floor.vue'
 export default {
   data() {
     return {
-      msg: 'http://123.56.244.158:7070',
+      msg: 'http://localhost:7070',
       msgc: { arr_img: null, name: null, path: null, musician: null, id: null },
       arr: [1, 2, 3, 4]
     }
@@ -109,5 +109,4 @@ body>.el-container {
 
 
 
-router-link {}
 </style>
