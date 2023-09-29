@@ -26,12 +26,13 @@
             播放队列<i class="el-icon-arrow-down el-icon--right"></i>
           </el-button>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>黄金糕</el-dropdown-item>
+            <el-dropdown-item v-for="(item, index) in play_list" :key="index">{{ item.name }} by {{ item.musician
+            }}</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-header>
       <el-main>
-        <router-view :play_music="play_music" :msgc="msgc" :msg="msg"></router-view>
+        <router-view :play_music="play_music" :msgc="msgc" :msg="msg" :play_list="play_list"></router-view>
       </el-main>
       <el-footer height="100px">
         <Floor :msgc="msgc" :msg="msg" />
@@ -47,15 +48,18 @@ export default {
     return {
       msg: 'http://localhost:7070',
       msgc: { arr_img: null, name: null, path: null, musician: null, id: null },
-      arr: [1, 2, 3, 4]
+      arr: [1, 2, 3, 4],
+      play_list: []
     }
   },
   components: {
     Floor
   },
   methods: {
-    play_music(item) {
-      this.msgc = item
+    play_music(item1) {
+
+      this.msgc = item1;
+
     }
   }
 }
@@ -106,7 +110,4 @@ body>.el-container {
 .el-container:nth-child(7) .el-aside {
   line-height: 320px;
 }
-
-
-
 </style>

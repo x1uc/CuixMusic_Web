@@ -4,15 +4,19 @@
             <i slot="prefix" class="el-input__icon el-icon-search" @click="search"></i>
         </el-input>
         <div>
-            <el-table :data="tableData" style="width: 100% " :header-row-style="{ height: '30px' }" @row-click="play_music">
-                <el-table-column prop="arr_img" label="封面" min-width="33%">
+            <el-table :data="tableData" style="width: 100% " :header-row-style="{ height: '30px' }"
+                :cell-class-name="tableCellClassName" @cell-click="play">
+                <el-table-column prop="arr_img" label="封面" min-width="25%">
                     <template slot-scope="scope">
                         <img :src="scope.row.arr_img" alt="" style="max-width: 50px; max-height: 50px; border-radius: 50%;">
                     </template>
                 </el-table-column>
-                <el-table-column prop="name" label="音乐标题" min-width="33%">
+                <el-table-column prop="name" label="音乐标题" min-width="25%">
                 </el-table-column>
-                <el-table-column prop="musician" label="歌手" min-width="33%">
+                <el-table-column prop="musician" label="歌手" min-width="25%">
+                </el-table-column>
+                <el-table-column label="添加到播放列表" min-width="25%">
+                    <el-button type="primary" icon="el-icon-plus" circle v-if="tableData.length > 1"></el-button>
                 </el-table-column>
             </el-table>
         </div>
@@ -32,6 +36,12 @@ export default {
         }
     },
     methods: {
+        tableCellClassName({ row, column, rowIndex, columnIndex }) {
+            //注意这里是解构
+            //利用单元格的 className 的回调方法，给行列索引赋值
+            row.index = rowIndex;
+            column.index = columnIndex;
+        },
         search() {
             if (this.input === "")
                 return
@@ -47,11 +57,20 @@ export default {
                     that.tableData[i].path = rt2 + that.tableData[i].path
                 }
             })
+        },
+        play(row, col) {
+            if (col.index !== 3) {
+                this.play_music(row);
+            }
+            else {
+                this.play_list.push(row);
+            }
         }
     },
     props: {
         play_music: Function,
-        msg: String
+        msg: String,
+        play_list: Array
     }
 }
 </script>

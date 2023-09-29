@@ -1,6 +1,6 @@
 <template>
     <div>
-        <views :play_music="play_music" :msg="msg" />
+        <views :play_music="play_music" :msg="msg" :play_list="play_list" />
     </div>
 </template>
 
@@ -13,7 +13,8 @@ export default {
     props: {
         msgc: Object,
         msg: String,
-        play_music: Function
+        play_music: Function,
+        play_list: Array
     }
 }
 </script>
