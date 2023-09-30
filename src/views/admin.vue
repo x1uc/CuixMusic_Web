@@ -1,6 +1,6 @@
 <template>
     <div>
-        <adm />
+        <adm :msg="msg" />
     </div>
 </template>
 
@@ -10,8 +10,11 @@ import adm from '../components/Admin.vue'
 
 export default {
     components: {
-        adm
+        adm,
     },
+    props: {
+        msg: String
+    }
 }
 
 </script>

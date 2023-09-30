@@ -1,7 +1,7 @@
 <template>
     <div style="height: 500px;">
         <el-button type="text" @click="dialogVisible = true">添加歌曲 第一个文件放歌曲 第二个文件放音乐</el-button>
-        <el-dialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
+        <el-dialog title="添加歌曲" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
             <el-upload class="pop-upload" ref="upload" action="" :file-list="fileList" :auto-upload="false" :multiple="true"
                 :on-change="handleChange" :on-remove="handleRemove">
                 <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
@@ -19,6 +19,9 @@ export default {
             dialogVisible: false,
             fileList: [],   // 定义一个空数组
         };
+    },
+    props: {
+        msg: String
     },
     methods: {
         handleChange(file, fileList) {
@@ -53,7 +56,7 @@ export default {
                 this.$message.warning(errors.join(', '));
                 return;
             }
-            
+
             // 下面的代码将创建一个空的FormData对象:
             const formData = new FormData()
             // 你可以使用FormData.append来添加键/值对到表单里面；
@@ -66,7 +69,7 @@ export default {
             //自定义的接口也可以用ajax或者自己封装的接口
             axios({
                 method: 'post',
-                url: 'http://localhost:7070/upload',   //填写自己的接口
+                url: this.msg + '/upload',   //填写自己的接口
                 data: formData        //填写包装好的formData对象
             }).then(res => {
                 if (res.data.msg == null) {
