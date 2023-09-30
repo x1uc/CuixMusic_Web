@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <floor :msgc="msgc" :msg="msg" />
+        <floor :msgc="msgc" :next_music="next_music" />
     </div>
 </template>
   
@@ -12,7 +12,7 @@ export default {
     },
     props: {
         msgc: Object,
-        msg: String
+        next_music: Function
     }
 }
 </script>

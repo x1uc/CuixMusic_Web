@@ -1,17 +1,14 @@
 <template>
     <div>
         <img :src="msgc.arr_img" class="left-image" v-if="msgc.arr_img !== null">
-        <audio controls id="kfc" class="centered-audio">
+        <audio controls id="kfc" class="centered-audio" @ended="next_music">
             <source :src="msgc.path" type="audio/mpeg" id="kcc" v-if="msgc.arr_img !== null">
             Your browser does not support the audio tag.
         </audio>
     </div>
 </template>
   
-
-
 <script>
-
 export default {
     data() {
         return {
@@ -20,7 +17,7 @@ export default {
     },
     props: {
         msgc: Object,
-        msg: String
+        next_music: Function
     },
     watch: {
         msgc: {
@@ -34,27 +31,6 @@ export default {
     }
 }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <style scoped>
 /* 左对齐的图片 */
