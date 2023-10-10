@@ -49,7 +49,8 @@ import Floor from './views/Floor.vue'
 export default {
   data() {
     return {
-      msg: 'http://localhost:7070',
+      msg:'/api',
+      // msg: '/api',
       msgc: { arr_img: null, name: null, path: null, musician: null, id: null },
       play_list: []
     }
